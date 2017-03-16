@@ -1,0 +1,9 @@
+// Arquivo reciprocal.hpp: Tem as definições do protótipo da função
+
+#ifdef __cplusplus
+extern "C"{
+	#endif
+	extern double reciprocal (int i); // Definindo p/ vários arquivos diferentes
+	#ifdef __cplusplus
+}
+#endif

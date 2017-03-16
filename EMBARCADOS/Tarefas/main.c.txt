@@ -1,0 +1,15 @@
+// Arquivo main.c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char **argv){
+	
+	int i;
+	i = atoi(argv[1]);
+	printf("The recirpocal of $d is %g\n", i, reciprocal(i));
+
+	//printf("argc = %d \n", argc);
+	//printf("1º Argumento: %s\n", argv[0]);
+	return 0;
+
+}

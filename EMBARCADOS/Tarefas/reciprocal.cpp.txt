@@ -1,0 +1,9 @@
+// Arquivo reciprocal.cpp
+#include <cassert> // Biblioteca para conferir se há algum erro
+#include "reciprocal.hpp" 
+
+double reciprocal (int i){ // Função que devolve o inverso do número
+	// I should be nonzero.
+	assert(i != 0); // Garante que o denominador não seja 0
+	return 1.0/i;
+}
