@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-int main(int argc, const char *argv[])
+int main(int argc, char *argv[])
 {
     char nome[50], nome_arq[50];
     int idade;
@@ -16,8 +17,8 @@ int main(int argc, const char *argv[])
     sprintf(nome_arq, "%s.txt", nome);
 
     fp = fopen(nome_arq,"w");
-    if(fp == null){
-        prinf("Nao foi possivel abrir o arquivo!");
+    if(!fp){
+        printf("Nao foi possivel abrir o arquivo!");
         exit(0);
     }
 
