@@ -1,0 +1,96 @@
+Data: 28/03/2017
+
+1. Como se utiliza o comando 'ps' para:
+	(a) Mostrar todos os processos rodando na máquina?
+
+	$ ps -a
+
+	(b) Mostrar os processos de um usuário?
+
+	$ ps -u
+
+	(c) Ordenar todos os processos de acordo com o uso da CPU?
+
+	ps aux --sort=-pcpu
+	$ ps -e -o pid,pcpu,pmem
+
+	(d) Mostrar a quanto tempo cada processo está rodando?
+	
+	# ps -e -o pid,user,etime
+
+
+    a - mostra todos os processos existentes;
+    e - exibe as variáveis de ambiente relacionadas aos processos;
+    f - exibe a árvore de execução dos processos;
+    l - exibe mais campos no resultado;
+    m - mostra a quantidade de memória ocupada por cada processo;
+    u - exibe o nome do usuário que iniciou determinado processo e a hora em que isso ocorreu;
+    x - exibe os processos que não estão associados a terminais;
+    w - se o resultado de processo não couber em uma linha, essa opção faz com que o restante seja exibido na linha seguinte. 
+
+    Campos comuns exibidos nas saídas do comando:
+
+	USER: Usuário proprietário do processo
+	PID: ID do processo
+	%CPU: % dos recursos de CPU que o processo está usando
+	%MEM: % da memória real que o processo está usando
+	VSZ: Tamanho virtual do processo em KiB
+	RSS: Resident Set Size (Total de memória usada pelo processo e seus arquivos)
+	TTY: Identificador do terminal de controle
+	STAT: Estado de processo atual
+	START: Horário em que o processo foi iniciado
+	COMMAND: Nome do comando e argumentos.
+	LWP:  ightweight Process (Thread)
+
+	Estado dos processos retornados por ps:
+    R = Executável
+    S = Dormente
+    Z = Zumbi
+    D = Espera no disco
+    T = Rastreado ou interrompido
+
+     Sendo que:
+	Executável: O processo pode ser executado (quando houver tempo de CPU disponível)
+	Dormente: O processo está aguardando algum recurso
+	Zumbi: O processo está tentando se destruir
+	Parado: O processo é suspenso (não há permissão para ser executado).
+
+
+
+
+2. De onde vem o nome fork()?
+
+Deriva de FORQUILHA, que significa bifurcação! Por isso que são gerados dois processos, um pai e um filho, quando é digitado!
+
+3. Quais são as vantagens e desvantagens em utilizar:
+	(a) system()?
+	(b) fork() e exec()?
+
+4. É possível utilizar o exec() sem executar o fork() antes?
+
+Sim, é possível! A definição de exec() simplesmente é a capacidade que um programa tem de rodar um outro layout dentro do outro, não depende de fork() para executar!
+
+5. Quais são as características básicas das seguintes funções:
+	(a) execp()?
+	(b) execv()?
+	(c) exece()?
+	(d) execvp()?
+	(e) execve()?
+	(f) execle()?
+
+	int execl(const char *path, const char *arg0, ... , (char *) NULL);
+	int execv(const char *path, char *const argv[]);
+	int execle(const char *path, const char *arg0, ... , (char *) NULL , char *const envp[]);
+	int execve(const char *path, char *const argv[], char *const envp[]);
+	int execlp(const char *file, const char *arg0, ... , (char *) NULL );
+	int execvp(const char *file, char *const argv[]);
+
+
+    L: lista de argumentos [execl(), execle() e execlp()]. Os argumentos que serão recebidos em argv são listados um a um como parâmetros da função em forma de string.
+
+    V: vetor de argumentos [execv(), execve() e execvp()]. Os argumentos que serão recebidos em argv são passados em um vetor do tipo char* que já contém todas as strings previamente carregadas.
+
+    E: variáveis de ambiente [execle() e execve()]. O último parâmetro destas funções é um vetor para strings (char *) que será recebido pelo novo programa no argumento envp contendo variáveis de ambiente pertinentes para sua execução. Para as versões sem a letra “e“, o ambiente é adquirido a partir de uma variável externa (extern char **environ) já declarada na biblioteca unistd.h.
+
+    P: utilização da variável de ambiente PATH [execlp() e execvp()]. Esta função irá buscar a nova imagem do processo nos diretórios contidos na variável PATH. Para as versões sem a letra “p“, deverá ser passada uma string contendo o caminho completo para o arquivo executável.
+
