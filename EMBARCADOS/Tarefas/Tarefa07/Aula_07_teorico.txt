@@ -5,12 +5,34 @@ Data: 30/03/2017
 		int	fd[2];
 		pipe(fd);
 		pid = fork();
+
+
 	(b) int pid;
 		int	fd[2];
 		pid = fork();
 		pipe(fd);
 
+Quando um pipe é criado, ele serve de comunicação entre 2 processos, seu pai e seu filho! Na letra (a), ele foi criado e depois foi dado o fork(), portanto há apenas um pipe.
+
+
+
+
+
 2. Apresente mais cinco sinais importantes do ambiente Unix, além do SIGSEGV, SIGUSR1, SIGUSR2, SIGALRM e SIGINT. Quais são suas características e utilidades?
+
+>> SIGSYS((12)* Argumento incorreto de uma chamada de sistema.
+
+>> SIGCLD((18) Morte de um filho: enviado ao pai pela terminação de um processo filho.
+
+>> SIGPWR((19) Reativação sobre pane elétrica.
+
+>> SIGFPE((8)* Emitido em caso de erro de cálculo em ponto flutuante, assim como no caso de um número em ponto 
+flutuante em formato ilegal. Indica sempre um erro de programação.
+
+>> SIGBUS((10)* Emitido em caso de erro sobre o barramento.
+
+>> SIGIOT((6)* Problemas de instrução de E/S: emitido em caso de problemas de hardware.
+
 
 3. Considere o código a seguir:
 
@@ -35,3 +57,9 @@ Data: 30/03/2017
 	19. }
 
 Sabendo que a função alarm() tem como entrada a quantidade de segundos para terminar a contagem, quão precisos são os alarmes criados neste código? De onde vem a imprecisão? Este é um método confiável para desenvolver aplicações em tempo real?
+
+A imprecisão da função alarme mora na execução das outras linhas de código! Pois sempre que o alarme manda o sinal SIGALRM, é chamada a função e é executada. Porém, 
+para a execução de cada linha de código, existe um tempo. Tal tempo depende da frequência de relógio do processador em questão e a quantidade de linhas que devem ser 
+executadas. Portanto, os alarmes são precisos com uma certa quantidade de casas decimais.
+
+Este método é confiável para qualquer aplicação, desde que está não precise de uma rigorosidade no tempo da ordem de 10^-6 s, nessa faixa...
