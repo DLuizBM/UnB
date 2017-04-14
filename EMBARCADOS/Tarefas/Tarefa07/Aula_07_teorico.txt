@@ -12,10 +12,12 @@ Data: 30/03/2017
 		pid = fork();
 		pipe(fd);
 
-Quando um pipe é criado, ele serve de comunicação entre 2 processos, seu pai e seu filho! Na letra (a), ele foi criado e depois foi dado o fork(), portanto há apenas um pipe.
+Na letra (a), o pipe é criado antes do fork(), ou seja, antes da criação do processo filho! Sabe-se que o pipe é um canal de comunicação, por onde se escreve
+e por onde se lê as mensagens de troca entre pai e filho. Quando se cria antes, é criado apenas um pipe pois apenas o processo pai o executa, já que o filho 
+ainda não fora criado.
 
-
-
+Na letra (b), primeiramente é criado um filho por meio do fork() e, posteriormente, é criado o pipe. Nesse caso, como não foi restringido, o processo filho e o
+processo pai executam a criação do pipe, portanto, nesse caso foram criados 2 pipes diferentes.
 
 
 2. Apresente mais cinco sinais importantes do ambiente Unix, além do SIGSEGV, SIGUSR1, SIGUSR2, SIGALRM e SIGINT. Quais são suas características e utilidades?
