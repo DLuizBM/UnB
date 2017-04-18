@@ -5,6 +5,15 @@
 #include <sys/un.h>
 #include <unistd.h>
 
+/*
+Comandos no terminal:
+gcc clientelocal.c -o cliente
+./cliente /tmp/socket1 "Mensagem"
+
+gcc servidorlocal.c -o servidor
+./servidor /tmp/socket1 "Mensagem"
+*/
+
 int main (int argc, char* const argv[])
 {
 	char *socket_name;

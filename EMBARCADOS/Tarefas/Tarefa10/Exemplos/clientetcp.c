@@ -6,6 +6,29 @@
 #include <sys/un.h>
 #include <unistd.h>
 
+/*
+Comandos no terminal:
+gcc clientetcp.c -o clientetcp
+./clientetcp 192.168.1.1 7000 "Mensagem"
+
+gcc servidortcp.c -o servidortcp
+./servidortcp 7000
+
+Comandos básicos do funcionamento de um SOCKET servidor:
+ifconfig ou hostname -I
+socket()
+bind()
+listen()
+accept() <> read() <> write()
+close()
+
+Comandos básicos do funcionamento de um SOCKET cliente:
+socket()
+connect() <> accept() <> read() <> write()
+close()
+
+*/
+
 int main (int argc, char* const argv[])
 {
 	int socket_id;
