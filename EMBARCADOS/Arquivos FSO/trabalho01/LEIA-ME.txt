@@ -1,0 +1,100 @@
+1º TRABALHO DE FUNDAMENTOS DE SISTEMAS OPERACIONAIS
+
+INTEGRANTES:
+NASSER YOUSEF SANTANA ALI - 13/0034398
+THIAGO DE OLIVEIRA - 
+
+INSTRUÇÕES E RECOMENDAÇÕES DO TRABALHO 01
+
+******************** QUESTAO 01 **************************
+
+******************** QUESTAO 02 **************************
+
+Qual o SO usado na construção do programa?
+SO Linux - distribuição Ubuntu versão 16.04 LTS
+
+Qual o ambiente de desenvolvimento utilizado?
+Ambiente Sublime Text e VIM
+
+Telas e Instruções de Uso
+
+/////////////////////////////////////
+
+$gcc questao02.c -o questao02
+
+/////////////////////////////////////
+
+$./questao02 
+
+# de parametros: 1
+Nome do executavel: ./questao02
+
+FIM DO PROGRAMA!
+
+/////////////////////////////////////
+
+./questao02 -r teste 30
+
+# de parametros: 4
+Nome do executavel: questao02
+Parametro #1: -r
+Parametro #2: teste
+Parametro #3: 30
+
+FIM DO PROGRAMA!
+
+/////////////////////////////////////
+
+Quais as limitações conhecidas?
+
+
+******************** QUESTAO 032 **************************
+
+Qual o SO usado na construção do programa?
+SO Linux - distribuição Ubuntu versão 16.04 LTS
+
+Qual o ambiente de desenvolvimento utilizado?
+Ambiente Sublime Text e VIM
+
+Telas e Instruções de Uso
+
+/////////////////////////////////////
+
+$make
+resultado:
+gcc  -c questao03.c
+gcc  -c crescente.c
+gcc  -c decrescente.c
+gcc  -o questao03 questao03.o crescente.o decrescente.o
+
+/////////////////////////////////////
+
+$./questao03 -r
+Digite os numeros (p/ encerrar digite -1):
+5
+4
+8
+-1
+Saida decrescente:
+8 5 4 
+
+/////////////////////////////////////
+
+$./questao03 -d
+Digite os numeros (p/ encerrar digite -1):
+5
+4
+8
+-1
+Saida crescente:
+4 5 8 
+
+/////////////////////////////////////
+
+$./questao03 -h
+Parametro nao incluso ou inexistente!
+FIM DO PROGRAMA!
+
+/////////////////////////////////////
+
+Quais as limitações conhecidas?
